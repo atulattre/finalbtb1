@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Flat Website</title>
+  <style type="text/css">
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #575d99;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+    li {
+      margin-left: 15px;
+    }
+    li:first-child {
+      margin-left: 0;
+    }
+    input[type="text"] {
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    *{
+ margin: 0px;
+ padding: 0px;
+}
+body{
+ font-family: arial;
+}
+.main{
+
+ margin: 2%;
+}
+
+.card{
+     width: 20%;
+     display: inline-block;
+     box-shadow: 2px 2px 20px black;
+     border-radius: 5px; 
+     margin: 2%;
+    }
+
+.image img{
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  width:  281px;
+  height: 200px;
+  
+
+ 
+ }
+
+.title{
+ 
+  text-align: center;
+  padding: 10px;
+  
+ }
+
+h1{
+  font-size: 20px;
+ }
+
+.des{
+  padding: 3px;
+  text-align: center;
+ 
+  padding-top: 10px;
+        border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+button{
+  
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding:10px;
+}
+button:hover{
+  background-color: black;
+  color: white;
+  transition: .5s;
+  cursor: pointer;
+}
+.add1{
+    background-color: green;
+}
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li>Welcome {{request.user}}</li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'all_flat'%}">Home</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'post'  %}">Your Flat</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'cp'%}">Post Flat</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'notify1'%}">Notification</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{% url 'userlogout'%}">Logout</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li style="float:right;"><input type="text" placeholder="Filter" ></li>
+      <li style="float:right;"><button style="float:right; background-color: black;"    type="submit">Filter</button></li>
+    </ul>
+    
+  </nav>
+  <div class="add1">
+    <h2>
+        Post Added Successfully
+    </h2>
+  </div>
+  <div class="main">
+
+  
+   
+   {% for flat in flat6 %}
+   <div class="card">
+       
+       
+   <div class="image">
+       <img src="{{ flat.images1.url }}" alt="" class="prod-size"  width="200px">
+   </div>
+   
+   <div class="title">
+      Building name: <td>{{flat.building_name}}</td>
+   </div>
+   <div class="title">
+       Flat No.: <td>{{flat.room_number}}</td>
+    </div>
+    <div class="title">
+       Room Type: <td>{{flat.room_type}}</td>
+    </div>
+    <div class="title">
+       Room Rent: <td>{{flat.rent}}</td>
+    </div>
+   <div class="des">
+       <td>{{flat.comments}}</td>
+       
+                   
+   </div>
+   <div class="title">
+       <td><a href="{% url 'contact' flat.id %}">More details</a></td>
+    </div>
+   
+   </div>
+   {% endfor %}
+   <!--cards -->
+   
+   
+   
+   </div>
+  
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+      </style>
+      
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial***-scale=1.0">
+    <title>Owner Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+    
+<body>
+    <div class="container">
+        <h1>Owner/Student details</h1>
+        <hr>
+        <table  class="table table-dark table-striped">
+            <thead>
+              <tr>
+              <!-- <th scope="col">#</th>-->
+                <th scope="col">Student Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Branch</th>
+                <th scope="col">Year</th>
+                <th scope="col">If interested Fill Form & click here</th>
+
+               
+                
+                
+                
+                
+                
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <!--<th scope="row">{{flat.id}}</th>-->
+                <td>{{flats1.firstname}}</td>
+                <td>{{flats1.phone}}</td>
+                <td>{{flats1.branch}}</td>
+                <td>{{flats1.year}}</td>
+               
+                <td><a href="{%url 'view11' flats1.id%}">Click here</a></td>
+                
+             
+                
+               
+                
+                
+               
+                
+              </tr>
+              
+            </tbody>
+           
+          </table>
+
+      </div>
+      <div class="container">
+        <h3>
+          &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        &nbsp;   Your details will sent to owner
+        </h3>
+        <form action="view11" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="ownername" required>
+            </div>
+            <div class="form-group">
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone no.</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+     
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

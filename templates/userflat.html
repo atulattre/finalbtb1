@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Flat Website</title>
+  <style type="text/css">
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color:#575d99;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+    li {
+      margin-left: 15px;
+    }
+    li:first-child {
+      margin-left: 0;
+    }
+    input[type="text"] {
+      padding: 5px;
+      
+    }
+    button {
+      padding: 5px 10px;
+      background-color:black;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color:black;
+    }
+    *{
+ margin: 0px;
+ padding: 0px;
+}
+body{
+ font-family: arial;
+}
+.main{
+
+ margin: 2%;
+}
+
+.card{
+    width: 19.33%;
+     display: inline-block;
+     box-shadow: 2px 2px 20px black;
+     border-radius: 5px; 
+     margin: 2%;
+    }
+
+.image img{
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  width:  281px;
+  height: 200px;
+  
+
+ 
+ }
+
+.title{
+ 
+  text-align: center;
+  padding: 10px;
+  
+ }
+
+h1{
+  font-size: 20px;
+ }
+
+.des{
+  padding: 3px;
+  text-align: center;
+ 
+  padding-top: 10px;
+        border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+button{
+  /* margin-top: 40px;/ */
+  /* margin-bottom: 10px; */
+  background-color:black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding:10px;
+}
+button:hover{
+  background-color: black;
+  color: white;
+  transition: .5s;
+  cursor: pointer;
+}
+table,th,td{
+            border:2px solid black;
+            margin:100px auto;
+            margin-bottom: 15px;
+            
+            
+            
+        }
+        th,td{
+            padding:10px
+        }
+        .button1{
+            margin-left: 685px;
+            font: blue;
+            
+        }
+.filterup{
+    margin-top:5px
+}
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li>Welcome {{request.user}}</li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li><a href="{%url 'all_flat'%}">Home</a></li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li><a href="{%url 'post'  %}">Your Flat</a></li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li><a href="{%url 'cp'%}">Post Flat</a></li>
+      <li><a href="{%url 'notify1'%}">Notification</a></li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li><a href="{% url 'userlogout'%}">Logout</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li style="float:right;"><input type="text" placeholder="Filter" ></li>
+      <li style="float:right;"><button style="float:right; background-color: black;"    type="submit">Filter</button></li>
+    </ul>
+    <!-- <div class="filterup">
+      <input type="text" placeholder="Filter">
+      <button>Filter</button>
+    </div> -->
+  </nav>
+
+  <table style="width:40% "  >
+    <tr><th>First Name</th>
+        <td>{{flat4.firstname}}</td>
+    </tr>
+    <tr><th>Last Name</th>
+        <td>{{flat4.lastname}}</td>
+    </tr>
+    <tr><th>Student Id</th>
+        <td>{{flat4.student_id}}</td>
+    </tr>
+    <tr><th>Phone</th>
+        <td>{{flat4.phone}}</td>
+    </tr>
+    <tr><th>Branch</th>
+        <td>{{flat4.branch}}</td>
+    </tr>
+    <tr><th>Year</th>
+        <td>{{flat4.year}}</td>
+    </tr>
+    <tr><th>Building Name</th>
+        <td>{{flat4.building_name}}</td>
+    </tr>
+    <tr><th>Room No.</th>
+        <td>{{flat4.room_number}}</td>
+    </tr>
+    <tr><th>Room Type</th>
+        <td>{{flat4.room_type}}</td>
+    </tr>
+    <tr><th>Space</th>
+        <td>{{flat4.space}}</td>
+    </tr>
+    <tr><th>Rent</th>
+        <td>{{flat4.rent}}</td>
+    </tr>
+    <tr><th>Image</th>
+        <td><img src="{{ flat4.images1.url }}" alt="" class="prod-size"  width="200px"></td>
+    </tr>
+    <tr><th>Comment</th>
+        <td>{{flat4.comments}}</td>
+    </tr>
+    
+   
+
+</table>
+<div  class="button1">
+    <a    href="#">Edit </a>
+    &nbsp; &nbsp;
+    <a  href="{%url 'delpost1' flat4.id%}">Delete</a>
+</div>
+  
+</body>
+</html>

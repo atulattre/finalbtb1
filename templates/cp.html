@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Flat Website</title>
+  <style type="text/css">
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #575d99;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+    li {
+      margin-left: 15px;
+    }
+    li:first-child {
+      margin-left: 0;
+    }
+    input[type="text"] {
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+   
+body{
+ font-family: arial;
+}
+.main{
+
+ margin: 2%;
+}
+
+.card{
+     width: 20%;
+     display: inline-block;
+     box-shadow: 2px 2px 20px black;
+     border-radius: 5px; 
+     margin: 2%;
+    }
+
+.image img{
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  width:  281px;
+  height: 200px;
+  
+
+ 
+ }
+
+.title{
+ 
+  text-align: center;
+  padding: 10px;
+  
+ }
+
+h1{
+  font-size: 20px;
+ }
+
+.des{
+  padding: 3px;
+  text-align: center;
+ 
+  padding-top: 10px;
+        border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+button{
+ 
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding:10px;
+}
+button:hover{
+  background-color: black;
+  color: white;
+  transition: .5s;
+  cursor: pointer;
+}
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding-top: 0px;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+    }
+    
+    .container h2 {
+      margin-bottom: 30px;
+    }
+    
+    .container input[type="text"],
+    .container input[type="email"],
+    .container input[type="password"],
+    .container input[type="number"],
+    .container input[type="file"],
+    .container select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+    
+    .container input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    
+    .container a {
+      text-decoration: none;
+      color: #069;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li>Welcome {{request.user}}</li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'all_flat'%}">Home</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'post'  %}">Your Flat</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'cp'%}">Post Flat</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{%url 'notify1'%}">Notification</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="{% url 'userlogout'%}">Logout</a></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li style="float:right;"><input type="text" placeholder="Filter" ></li>
+      <li style="float:right;"><button style="float:right; background-color: black;"    type="submit">Filter</button></li>
+    </ul>
+    
+  </nav>
+
+  <div class="container">
+    
+    <h2>Add student details </h2>
+    <form action="\cp" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      
+      <input type="text" name="firstname" placeholder="firstname" required><br>
+      <input type="text" name="lastname" placeholder="lastname" required><br>
+      <input type="number" name="student_id" placeholder="Student ID" required><br>
+      <input type="number" name="phone" placeholder="phone" required><br>
+      <input type="text" name="branch" placeholder="Branch" required><br>
+      <input type="number" name="year" placeholder="Year" required><br>
+      <h1>Add your room details</h1>
+      <input type="text" name="building_name" placeholder="building_name" required><br>
+      <input type="text" name="room_number" placeholder="room_number" required><br>
+      <input type="text" name="room_type" placeholder="room_type" required><br>
+      <input type="number" name="space" placeholder="space" required><br>
+      <input type="text" name="rent" placeholder="rent" required><br>
+      <input type="file" name="images1"  accept="image/*"    required><br>
+     
+      <input type="text" name="comments" placeholder="Add comments" required><br>
+
+
+
+
+      
+
+      
+ 
+      
+      
+
+      
+      <input type="submit" value="Submit">
+    </form>
+    
+  </div>
+</body>
+</html>
